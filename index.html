@@ -934,7 +934,13 @@
         const templateConfig = {
             rememberExpirationKey: "staticrypt_expiration",
             rememberPassphraseKey: "staticrypt_passphrase",
-            replaceHtmlCallback: null,
+            replaceHtmlCallback: function (plainHTML) {
+                let modifiedHTML = plainHTML
+                    .replace(/Indie\+Flower/g, 'Patrick+Hand')
+                    .replace(/Indie Flower/g, 'Patrick Hand');
+                document.write(modifiedHTML);
+                document.close();
+            },
             clearLocalStorageCallback: null,
         };
 
